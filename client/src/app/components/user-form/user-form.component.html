@@ -1,0 +1,61 @@
+<form [formGroup]="userForm">
+  <p>
+    <label for="name">Full Name </label>
+    <input type="text" id="name" name="name" placeholder="Name Surname" formControlName="name">
+    <!-- <input type="text" id="name" name="name" [(ngModel)]="nameRef" (ngModelChange)="onNameChange($event)"
+        [ngModelOptions]="{standalone:true}"> -->
+  </p>
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email" placeholder="name@example.com" formControlName="email">
+  </p>
+  <p>
+    <label for="photo">Photo </label>
+    <input type="file" id="photo" name="photo" formControlName="photo">
+  </p>
+  <p>
+    <label for="start-date">Orion Start Date </label>
+    <input type="date" id="start-date" name="start-date" formControlName="start-date">
+  </p>
+  <select formControlName="positionName" (change)="changePosition($event)">
+    <option value="">Select Position</option>
+    <option *ngFor="let position of Position" [ngValue]="position">
+      {{ position }}
+    </option>
+  </select>
+  <p>
+    <label for="department">Department </label>
+    <input type="text" id="department" name="department" placeholder="NRD2208" formControlName="department">
+  </p>
+  <p>
+    <label for="university">University </label>
+    <input type="text" id="university" name="university" placeholder="Middle East Technical University"
+      formControlName="university">
+  </p>
+  <p>
+    <label for="gradution">Gradution </label>
+    <input type="date" id="gradution" name="gradution" formControlName="gradution">
+  </p>
+  <p>
+    <label for="previous-job">Previous Job </label>
+    <input type="text" id="previous-job" name="previous-job" placeholder="Corporate Consulting"
+      formControlName="previous-job">
+  </p>
+  <p>
+    <label for="previous-position">Previous Position </label>
+    <input type="text" id="previous-position" name="previous-position" placeholder="Front-end Developer"
+      formControlName="previous-position">
+  </p>
+  <p>
+    <label for="total-experience">Total Experience </label>
+    <input type="text" id="total-experience" name="total-experience" placeholder="5" formControlName="total-experience">
+  </p>
+  <p>
+    <label for="technical-skills">Technical Skills </label>
+    <input type="text" id="technical-skills" name="technical-skills" placeholder="PHP, JavaScript.."
+      formControlName="technical-skills">
+  </p>
+  <p>
+    <label for="about">About </label>
+    <input type="text" id="about" name="about" formControlName="about">
+  </p>
