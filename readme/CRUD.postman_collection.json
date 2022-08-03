@@ -1,0 +1,1003 @@
+{
+	"info": {
+		"_postman_id": "d9e79987-7979-4443-8648-2e7450a5e32a",
+		"name": "CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dynamic-Form",
+			"item": [
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "root",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User's Role",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI2MTQ0MzBkMjIxYjJjYjRlYWYzMGRlIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MDU0MTY2OSwiZXhwIjoxNjUwNTg0ODY5fQ.aySUuUXygS_SR9cQaUSidLiPWkB34t_ZZnONH627ECE",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/get-role",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"get-role"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Is token expired",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI2MTQ0MzBkMjIxYjJjYjRlYWYzMGRlIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MDU0MTgyMSwiZXhwIjoxNjUwNTg1MDIxfQ.GnMm5JrTG3sKYYi5r3qtV_7CsEKH4jH5pvk5KQNbSNM",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/is-expired",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"is-expired"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Admins",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3YTUxNDIyMWQ5YmRkNDM1ZGFhYmM4IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTI3NjQyNDQsImV4cCI6MTY1MjgwNzQ0NH0.5-IApol9z6B0XfSNABC4mvzlUvcxg3JAEzWZFpspHKI",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/get-admins",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"get-admins"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Admin Details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3YTUxNDIyMWQ5YmRkNDM1ZGFhYmM4IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTI3NjQyNDQsImV4cCI6MTY1MjgwNzQ0NH0.5-IApol9z6B0XfSNABC4mvzlUvcxg3JAEzWZFpspHKI",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/get-admins",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"get-admins"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Admin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3YTUxNDIyMWQ5YmRkNDM1ZGFhYmM4IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTI3NjQyNDQsImV4cCI6MTY1MjgwNzQ0NH0.5-IApol9z6B0XfSNABC4mvzlUvcxg3JAEzWZFpspHKI",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin12\",\r\n    \"password\": \"1234\",\r\n    \"allowedForms\": [\r\n        {\r\n            \"formId\": \"627cf92afbe1250361e53eb5\",\r\n            \"allowedField\": \"\",\r\n            \"allowedValue\": \"\",\r\n            \"permissionType\": \"write\"\r\n        },\r\n        {\r\n            \"formId\": \"627cfa3afbe1250361e53ecc\",\r\n            \"allowedField\": \"\",\r\n            \"allowedValue\": \"\",\r\n            \"permissionType\": \"write\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/register-as-admin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"register-as-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update admin",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3YTUxNDIyMWQ5YmRkNDM1ZGFhYmM4IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTI3NjQyNDQsImV4cCI6MTY1MjgwNzQ0NH0.5-IApol9z6B0XfSNABC4mvzlUvcxg3JAEzWZFpspHKI",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountId\": \"6283310e57925c7336e16c1a\",\r\n    \"updatedAccount\": {\r\n        \"username\": \"admin11211\",\r\n        \"password\": \"1234\",\r\n        \"allowedForms\": [\r\n            {\r\n                \"formId\": \"627cf92afbe1250361e53eb5\",\r\n                \"allowedField\": \"\",\r\n                \"allowedValue\": \"\",\r\n                \"permissionType\": \"write\"\r\n            },\r\n            {\r\n                \"formId\": \"627cfa3afbe1250361e53ecc\",\r\n                \"allowedField\": \"\",\r\n                \"allowedValue\": \"\",\r\n                \"permissionType\": \"write\"\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/update-admin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"update-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an Admin Account",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3YTUxNDIyMWQ5YmRkNDM1ZGFhYmM4IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTI3NjQyNDQsImV4cCI6MTY1MjgwNzQ0NH0.5-IApol9z6B0XfSNABC4mvzlUvcxg3JAEzWZFpspHKI",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "accountId",
+											"value": "62832e73c6757f9faa5dd457",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/account/delete-admin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"delete-admin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Form",
+					"item": [
+						{
+							"name": "Get available forms",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2Y4YzgxOWZkNGE1MTgyMDdiZTc3IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTI0NDI4NDQsImV4cCI6MTY1MjQ4NjA0NH0.ALC6ov-qQ9EbQNFjiRlV3xvc5bJO81uxMN_Slne0VFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/get-forms",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										"get-forms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a Form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2Y4YzgxOWZkNGE1MTgyMDdiZTc3IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTIzNTczNDMsImV4cCI6MTY1MjQwMDU0M30.Vh-shRvDQmX9UHNJHwZumQqD49Wdt0-lnBOp1LH2UO4",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "formStructure",
+											"value": "[{\"title\":{\"type\":\"Number\",\"max\":\"10\"},\"body\":\"String\",\"date\":\"Date\"},{\"formName\":\"form\",\"description\":\"formDescription\",\"primaryColor\":\"red\"}]",
+											"type": "default"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Yasin/Desktop/1649936844252.png"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/create-form",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										"create-form"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a Form Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersSecretKey",
+										"value": "asd",
+										"type": "default"
+									},
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI0MmMwMzk0NmJiMjQzZjZmNGNlOTU0IiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY0OTA4MDQyMywiZXhwIjoxNjQ5MTY2ODIzfQ.0jYWC3jrc0IBuPWEhCP8bqnqTmDCy4yRjtF4_eNDYMY",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"fullName\": {\r\n            \"type\": \"String\",\r\n            \"max\": \"64\",\r\n            \"min\": \"6\",\r\n            \"required\":true,\r\n            \"htmlLabel\": \"Full Name\",\r\n            \"htmlType\": \"String\"\r\n        },\r\n        \"profilePhoto\": {\r\n            \"type\": \"String\",\r\n            \"htmlLabel\": \"Profile Photo\",\r\n            \"htmlType\": \"Image\"\r\n        }\r\n    },\r\n    {\r\n        \"formName\": \"form434\",\r\n        \"description\": \"formDescription\",\r\n        \"primaryColor\": \"red\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/create-form",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										"create-form"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3YTUxNmYyMWQ5YmRkNDM1ZGFhYmNhIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MjE5MDE2OSwiZXhwIjoxNjUyMjMzMzY5fQ.ztIpyMOTFjxlQq-nXn1APepTGpiYIXaKDlFWJ7Cali0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "formStructure",
+											"value": "[{\"phone\":{\"type\":\"Number\",\"max\":\"10\"},\"body\":\"String\",\"date\":\"Date\",\"deneme\":\"String\"},{\"formName\":\"form12\",\"description\":\"formDescription\",\"primaryColor\":\"blue\"},{\"form_id\":\"627a52d1deb85d1e816015dd\"}]",
+											"type": "default"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Yasin/Desktop/1649936844252.png"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/update-form",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										"update-form"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Forms",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2Y4YzgxOWZkNGE1MTgyMDdiZTc3IiwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QiLCJpYXQiOjE2NTI0NDI4NDQsImV4cCI6MTY1MjQ4NjA0NH0.ALC6ov-qQ9EbQNFjiRlV3xvc5bJO81uxMN_Slne0VFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "form_ids",
+											"value": "627cf92afbe1250361e53eb5",
+											"type": "default"
+										},
+										{
+											"key": "form_ids",
+											"value": "627cfa3afbe1250361e53ecc",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/delete-forms",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										"delete-forms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Form-Document",
+					"item": [
+						{
+							"name": "Get a form Documents-Admin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3YTNlZjJhOGJmODc1ZDdjMjg1MDQ0IiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MjE4MTA0NSwiZXhwIjoxNjUyMjI0MjQ1fQ.McOwF3jJ1bl2Nod78M_nh-QHylcVvacGT0rT92xOUIA",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2ZhNDRmYmUxMjUwMzYxZTUzZWNlIiwidXNlcm5hbWUiOiJhZG1pbjEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NTIzNTc3MDAsImV4cCI6MTY1MjM2NDkwMH0.m07_Ye7DOnP9Bn3iO703SMN5djp13Vsd6RxeD5JnCC8",
+											"type": "default"
+										},
+										{
+											"key": "formId",
+											"value": "627cfa3afbe1250361e53ecc",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic-account/get-admin-form",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic-account",
+										"get-admin-form"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post a document to form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2ZhNDRmYmUxMjUwMzYxZTUzZWNlIiwidXNlcm5hbWUiOiJhZG1pbjEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NTIzNTc3MDAsImV4cCI6MTY1MjM2NDkwMH0.m07_Ye7DOnP9Bn3iO703SMN5djp13Vsd6RxeD5JnCC8",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "4",
+											"type": "default"
+										},
+										{
+											"key": "profilePhoto",
+											"value": "Body test",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "form_id",
+											"value": "627cfa3afbe1250361e53ecc",
+											"type": "default"
+										},
+										{
+											"key": "date",
+											"value": "04.04.2004",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "server",
+											"value": "testsetest",
+											"type": "default",
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a document from Form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2ZhNDRmYmUxMjUwMzYxZTUzZWNlIiwidXNlcm5hbWUiOiJhZG1pbjEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NTIzNTc3MDAsImV4cCI6MTY1MjM2NDkwMH0.m07_Ye7DOnP9Bn3iO703SMN5djp13Vsd6RxeD5JnCC8",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "document_id",
+											"value": "627cfa7cfbe1250361e53ed7",
+											"type": "default"
+										},
+										{
+											"key": "form_id",
+											"value": "627cfa3afbe1250361e53ecc",
+											"type": "default"
+										},
+										{
+											"key": "title",
+											"value": "2",
+											"type": "default"
+										},
+										{
+											"key": "body",
+											"value": "12313",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "02.02.2002",
+											"type": "default",
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a form documents-Root",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2ZhNDRmYmUxMjUwMzYxZTUzZWNlIiwidXNlcm5hbWUiOiJhZG1pbjEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NTIzNTc3MDAsImV4cCI6MTY1MjM2NDkwMH0.m07_Ye7DOnP9Bn3iO703SMN5djp13Vsd6RxeD5JnCC8",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "form_id",
+											"value": "627cd4cda1eea52ba199e723",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a document from form Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI3Y2ZhNDRmYmUxMjUwMzYxZTUzZWNlIiwidXNlcm5hbWUiOiJhZG1pbjEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NTIzNTc3MDAsImV4cCI6MTY1MjM2NDkwMH0.m07_Ye7DOnP9Bn3iO703SMN5djp13Vsd6RxeD5JnCC8",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "document_ids",
+											"value": "627cdf50665ef28815f2c6fd",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "document_ids",
+											"value": "627cfa7cfbe1250361e53ed7",
+											"type": "default"
+										},
+										{
+											"key": "form_id",
+											"value": "627cfa3afbe1250361e53ecc",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dynamic/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dynamic",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "get users",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersSecretKey",
+										"value": "asd",
+										"type": "default",
+										"disabled": true
+									},
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI2YTg5YjA5M2VhNjBlY2QzZTNjYjY4IiwidXNlcm5hbWUiOiJhZG1pbjMzIiwiaWF0IjoxNjUxMjEzODcxLCJleHAiOjE2NTEyNTcwNzF9.-SSN4WmGnySW7QdGjMMgLQCtYeEDP7yCj2JiLZfe238",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "admin1",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "default"
+										},
+										{
+											"key": "departments",
+											"value": "NRD2022",
+											"type": "default"
+										},
+										{
+											"key": "departments",
+											"value": "NRD17",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI2MTQ0MzBkMjIxYjJjYjRlYWYzMGRlIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MDU0MjA4MywiZXhwIjoxNjUwNTg1MjgzfQ.vMQKRkmrpE0ynbCDzPJMjZdj3RUkedO8csZ34vR-89o",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/user/get-user-by-id?id=625d3fbfb46f8e2f68a12266",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"get-user-by-id"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "625d3fbfb46f8e2f68a12266"
+										},
+										{
+											"key": "usersSecretKey",
+											"value": "asd",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "multiple delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "ids",
+											"value": "626152818d149c9c4160f30b",
+											"type": "default"
+										},
+										{
+											"key": "ids",
+											"value": "623d94e68c66f5d7a37c5d3b",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "ids",
+											"value": "623d94e88c66f5d7a37c5d3d",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI2MTQ0MzBkMjIxYjJjYjRlYWYzMGRlIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MDU0MjA4MywiZXhwIjoxNjUwNTg1MjgzfQ.vMQKRkmrpE0ynbCDzPJMjZdj3RUkedO8csZ34vR-89o",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user/delete-multiple",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"delete-multiple"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "userssecretkey",
+										"value": "asd",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "test",
+											"type": "default"
+										},
+										{
+											"key": "description",
+											"value": "test",
+											"type": "default"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Yasin/Desktop/1649936844252.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update user",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI2MTQ0MzBkMjIxYjJjYjRlYWYzMGRlIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MDU0MjA4MywiZXhwIjoxNjUwNTg1MjgzfQ.vMQKRkmrpE0ynbCDzPJMjZdj3RUkedO8csZ34vR-89o",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_id",
+											"value": "626152918d149c9c4160f30f",
+											"type": "default"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Yasin/Desktop/1_CV8xgyU7p8YMVtQYPzrjgQ.jpeg"
+										},
+										{
+											"key": "description",
+											"value": "123123123",
+											"type": "default"
+										},
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjI2MTQ0MzBkMjIxYjJjYjRlYWYzMGRlIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1MDU0MjA4MywiZXhwIjoxNjUwNTg1MjgzfQ.vMQKRkmrpE0ynbCDzPJMjZdj3RUkedO8csZ34vR-89o",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
