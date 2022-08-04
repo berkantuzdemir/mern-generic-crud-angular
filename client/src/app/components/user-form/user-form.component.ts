@@ -17,13 +17,14 @@ export class UserFormComponent implements OnInit {
   nameRef: string = 'user-form'
   Position: string[] = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
   userForm!: FormGroup;
+  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   constructor(public fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
       name: [null, Validators.required],
-      email: [null, Validators.required],
+      email: [null, [Validators.required, Validators.pattern(this.emailPattern)]],
       photo: [null, Validators.required],
       startDate: [null, Validators.required],
       positionName: [null, Validators.required],
@@ -33,8 +34,8 @@ export class UserFormComponent implements OnInit {
       previousJob: [null, Validators.required],
       previousPosition: [null, Validators.required],
       totalExperience: [null, Validators.required],
-      technicalSkills: [null, Validators.required, Validators.minLength(20)],
-      about: [null, Validators.required, Validators.minLength(150)]
+      technicalSkills: [null, [Validators.required, Validators.minLength(20)]],
+      about: [null, [Validators.required, Validators.minLength(150)]]
     });
   }
 
@@ -101,14 +102,10 @@ export class UserFormComponent implements OnInit {
     this.validateAllFormFields(this.userForm);
   }
 
-  validateAllFormFields(formGroup: FormGroup) {         //{1}
-    Object.keys(formGroup.controls).forEach(field => {  //{2}
-      const control = formGroup.get(field);             //{3}
-      if (control instanceof FormControl) {             //{4}
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {        //{5}
-        this.validateAllFormFields(control);            //{6}
-      }
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      control?.markAsTouched({ onlySelf: true });
     });
   }
 

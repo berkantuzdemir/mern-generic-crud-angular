@@ -17,6 +17,11 @@
     class="error">
     Email field is required!
   </span>
+  <span
+    *ngIf="(userForm.controls.email.touched || userForm.controls.email.dirty) && !userForm.controls.email.valid && userForm.get('email')?.hasError('pattern') && email.errors?.pattern"
+    class="error">
+    Email should be valid!
+  </span>
   <p>
     <label for="photo">Photo </label>
     <input type="file" id="photo" name="photo" formControlName="photo">
@@ -100,7 +105,7 @@
     <input type="text" id="totalExperience" name="totalExperience" placeholder="5" formControlName="totalExperience">
   </p>
   <span
-    *ngIf="(userForm.controls.totalExperience.touched || userForm.controls.email.dirty) && !userForm.controls.totalExperience.valid && userForm.get('totalExperience')?.hasError('required') && totalExperience.errors?.required"
+    *ngIf="(userForm.controls.totalExperience.touched || userForm.controls.totalExperience.dirty) && !userForm.controls.totalExperience.valid && userForm.get('totalExperience')?.hasError('required') && totalExperience.errors?.required"
     class="error">
     Total Experience is required!
   </span>
