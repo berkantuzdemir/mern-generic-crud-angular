@@ -1,7 +1,7 @@
 <form [formGroup]="userForm">
   <p>
-    <label for="name">Full Name </label>
-    <input type="text" id="name" name="name" placeholder="Name Surname" formControlName="name">
+    <label for="name" class="form-label">Full Name </label>
+    <input type="text"  class="form-control" id="name" name="name" placeholder="Name Surname" formControlName="name">
   </p>
   <span
     *ngIf="(userForm.controls.name.touched || userForm.controls.name.dirty) && !userForm.controls.name.valid && userForm.get('name')?.hasError('required') && name.errors?.required"
@@ -9,8 +9,8 @@
     Name field is required!
   </span>
   <p>
-    <label for="email">Email </label>
-    <input type="text" id="email" name="email" placeholder="name@example.com" formControlName="email">
+    <label for="email" class="form-label">Email </label>
+    <input type="text" id="email"  class="form-control" name="email" placeholder="name@example.com" formControlName="email">
   </p>
   <span
     *ngIf="(userForm.controls.email.touched || userForm.controls.email.dirty) && !userForm.controls.email.valid && userForm.get('email')?.hasError('required') && email.errors?.required"
@@ -23,8 +23,8 @@
     Email should be valid!
   </span>
   <p>
-    <label for="photo">Photo </label>
-    <input type="file" id="photo" name="photo" formControlName="photo">
+    <label for="photo" class="form-label">Photo </label>
+    <input type="file" id="photo"   class="form-control" name="photo" formControlName="photo">
   </p>
   <span
     *ngIf="(userForm.controls.photo.touched || userForm.controls.photo.dirty) && userForm.controls.photo.touched && !userForm.controls.photo.valid && userForm.get('photo')?.hasError('required') && photo.errors?.required"
@@ -32,8 +32,8 @@
     Photo is required!
   </span>
   <p>
-    <label for="startDate">Orion Start Date </label>
-    <input type="date" id="startDate" name="startDate" formControlName="startDate">
+    <label for="startDate" class="form-label">Orion Start Date </label>
+    <input type="date" id="startDate"  class="form-control" name="startDate" formControlName="startDate">
   </p>
   <span
     *ngIf="(userForm.controls.startDate.touched || userForm.controls.startDate.dirty) && userForm.controls.startDate.touched && userForm.get('startDate')?.hasError('required') && startDate.errors?.required"
@@ -41,8 +41,8 @@
     Start Date is required!
   </span>
   <p>
-    <label for="position"> Position </label>
-    <select formControlName="positionName" (change)="changePosition($event)">
+    <label for="position" class="form-label"> Position </label>
+    <select formControlName="positionName"  class="form-control" (change)="changePosition($event)">
       <option [ngValue]="null">Select Position</option>
       <option *ngFor="let position of Position" [value]="position">{{position}}</option>
     </select>
@@ -53,8 +53,8 @@
     Position is required!
   </span>
   <p>
-    <label for="department">Department </label>
-    <input type="text" id="department" name="department" placeholder="NRD2208" formControlName="department">
+    <label for="department" class="form-label">Department </label>
+    <input type="text" id="department"  class="form-control" name="department" placeholder="NRD2208" formControlName="department">
   </p>
   <span
     *ngIf="(userForm.controls.department.touched || userForm.controls.department.dirty) && !userForm.controls.departmentlid && userForm.get('department')?.hasError('required') && department.errors?.required"
@@ -62,8 +62,8 @@
     Department is required!
   </span>
   <p>
-    <label for="university">University </label>
-    <input type="text" id="university" name="university" placeholder="Middle East Technical University"
+    <label for="university" class="form-label">University </label>
+    <input type="text" id="university"  class="form-control" name="university" placeholder="Middle East Technical University"
       formControlName="university">
   </p>
   <span
@@ -72,8 +72,8 @@
     University is required!
   </span>
   <p>
-    <label for="graduation">graduation </label>
-    <input type="date" id="graduation" name="graduation" formControlName="graduation">
+    <label for="graduation" class="form-label">graduation </label>
+    <input type="date" id="graduation"  class="form-control" name="graduation" formControlName="graduation">
   </p>
   <span
     *ngIf="(userForm.controls.graduation.touched || userForm.controls.graduation.dirty) && !userForm.controls.graduation.valid && userForm.get('graduation')?.hasError('required') && graduation.errors?.required"
@@ -81,8 +81,8 @@
     Graduation is required!
   </span>
   <p>
-    <label for="previousJob">Previous Job </label>
-    <input type="text" id="previousJob" name="previousJob" placeholder="Corporate Consulting"
+    <label for="previousJob" class="form-label">Previous Job </label>
+    <input type="text" id="previousJob"  class="form-control" name="previousJob" placeholder="Corporate Consulting"
       formControlName="previousJob">
   </p>
   <span
@@ -91,8 +91,8 @@
     Previous Job is required!
   </span>
   <p>
-    <label for="previousPosition">Previous Position </label>
-    <input type="text" id="previousPosition" name="previousPosition" placeholder="Front-end Developer"
+    <label for="previousPosition" class="form-label">Previous Position </label>
+    <input type="text" id="previousPosition" class="form-control" name="previousPosition" placeholder="Front-end Developer"
       formControlName="previousPosition">
   </p>
   <span
@@ -101,8 +101,8 @@
     Previous Position is required!
   </span>
   <p>
-    <label for="totalExperience">Total Experience </label>
-    <input type="text" id="totalExperience" name="totalExperience" placeholder="5" formControlName="totalExperience">
+    <label for="totalExperience" class="form-label">Total Experience </label>
+    <input type="text" id="totalExperience"  class="form-control" name="totalExperience" placeholder="5" formControlName="totalExperience">
   </p>
   <span
     *ngIf="(userForm.controls.totalExperience.touched || userForm.controls.totalExperience.dirty) && !userForm.controls.totalExperience.valid && userForm.get('totalExperience')?.hasError('required') && totalExperience.errors?.required"
@@ -110,8 +110,8 @@
     Total Experience is required!
   </span>
   <p>
-    <label for="technicalSkills">Technical Skills </label>
-    <input type="text" id="technicalSkills" name="technicalSkills" placeholder="PHP, JavaScript.."
+    <label for="technicalSkills" class="form-label">Technical Skills </label>
+    <input type="text" id="technicalSkills"  class="form-control" name="technicalSkills" placeholder="PHP, JavaScript.."
       formControlName="technicalSkills">
   </p>
   <span
@@ -120,8 +120,8 @@
     Technical Skills is required!
   </span>
   <p>
-    <label for="about">About </label>
-    <input type="text" id="about" name="about" formControlName="about">
+    <label for="about" class="form-label">About </label>
+    <input type="text" id="about" name="about"  class="form-control" formControlName="about">
   </p>
   <span
     *ngIf="(userForm.controls.about.touched || userForm.controls.about.dirty) && !userForm.controls.about.valid && userForm.get('about')?.hasError('required') && about.errors?.required"
@@ -129,5 +129,5 @@
     About field is required!
   </span>
 
-  <button type="button" (click)="onSubmit()">Submit Form</button>
+  <button type="button" class="btn btn-primary"(click)="onSubmit()">Submit Form</button>
 </form>
