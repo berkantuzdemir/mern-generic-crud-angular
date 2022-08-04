@@ -9,23 +9,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class UserFormComponent implements OnInit {
 
   nameRef: string = 'user-form'
-  Position: any = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
-  constructor(public fb: FormBuilder) {}
-  userForm = this.fb.group({
-    positionName: ['', [Validators.required]],
-  });
+  Position: string[] = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
+  userForm!: FormGroup;
 
-  changePosition(e: any) {
-    this.positionName?.setValue(e.target.value, {
-      onlySelf: true,
-    });
-  }
+  constructor(public fb: FormBuilder) {}
+
+  
 
   get positionName() {
     return this.userForm.get('positionName');
   }
 
   ngOnInit(): void {
+    this.userForm = this.fb.group({
+      name: null,
+      email: null,
+      photo: null,
+      startDate: null,
+      positionName: null,
+      department: null,
+      university: null,
+      graduation: null,
+      previousJob: null,
+      previousPosition: null,
+      totalExperience: null,
+      technicalSkills: null,
+      about: null
+    });
+  }
+
+  changePosition(e: any) {
+    this.positionName?.setValue(e.target.value, {
+      onlySelf: true,
+    });
   }
 
 }
