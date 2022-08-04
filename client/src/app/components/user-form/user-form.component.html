@@ -2,21 +2,39 @@
   <p>
     <label for="name">Full Name </label>
     <input type="text" id="name" name="name" placeholder="Name Surname" formControlName="name">
-    <!-- <input type="text" id="name" name="name" [(ngModel)]="nameRef" (ngModelChange)="onNameChange($event)"
-        [ngModelOptions]="{standalone:true}"> -->
   </p>
+  <span
+    *ngIf="!userForm.controls.name.valid && userForm.dirty && userForm.get('name')?.hasError('required') && name.errors?.required"
+    class="error">
+    Name field is required!
+  </span>
   <p>
     <label for="email">Email </label>
     <input type="text" id="email" name="email" placeholder="name@example.com" formControlName="email">
   </p>
+  <span
+    *ngIf="!userForm.controls.email.valid && userForm.dirty && userForm.get('email')?.hasError('required') && email.errors?.required"
+    class="error">
+    Email field is required!
+  </span>
   <p>
     <label for="photo">Photo </label>
     <input type="file" id="photo" name="photo" formControlName="photo">
   </p>
+  <span
+    *ngIf="!userForm.controls.photo.valid && userForm.dirty && userForm.get('photo')?.hasError('required') && photo.errors?.required"
+    class="error">
+    Photo is required!
+  </span>
   <p>
     <label for="startDate">Orion Start Date </label>
     <input type="date" id="startDate" name="startDate" formControlName="startDate">
   </p>
+  <span
+    *ngIf="!userForm.controls.startDate.valid && userForm.dirty && userForm.get('startDate')?.hasError('required') && startDate.errors?.required"
+    class="error">
+    Start Date is required!
+  </span>
   <p>
     <label for="position"> Position </label>
     <select formControlName="positionName" (change)="changePosition($event)">
@@ -24,39 +42,85 @@
       <option *ngFor="let position of Position" [value]="position">{{position}}</option>
     </select>
   </p>
+  <span
+    *ngIf="!userForm.controls.positionName.valid && userForm.dirty && userForm.get('positionName')?.hasError('required') && positionName.errors?.required"
+    class="error">
+    Position is required!
+  </span>
   <p>
     <label for="department">Department </label>
     <input type="text" id="department" name="department" placeholder="NRD2208" formControlName="department">
   </p>
+  <span
+    *ngIf="!userForm.controls.departmentlid && userForm.dirty && userForm.get('department')?.hasError('required') && department.errors?.required"
+    class="error">
+    Department is required!
+  </span>
   <p>
     <label for="university">University </label>
     <input type="text" id="university" name="university" placeholder="Middle East Technical University"
       formControlName="university">
   </p>
+  <span
+    *ngIf="!userForm.controls.university.valid && userForm.dirty && userForm.get('university')?.hasError('required') && university.errors?.required"
+    class="error">
+    University is required!
+  </span>
   <p>
     <label for="graduation">graduation </label>
     <input type="date" id="graduation" name="graduation" formControlName="graduation">
   </p>
+  <span
+    *ngIf="!userForm.controls.graduation && userForm.dirty && userForm.get('graduation')?.hasError('required') && graduation.errors?.required"
+    class="error">
+    Graduation is required!
+  </span>
   <p>
     <label for="previousJob">Previous Job </label>
     <input type="text" id="previousJob" name="previousJob" placeholder="Corporate Consulting"
       formControlName="previousJob">
   </p>
+  <span
+    *ngIf="!userForm.controls.previousJob.valid && userForm.dirty && userForm.get('previousJob')?.hasError('required') && previousJob.errors?.required"
+    class="error">
+    Previous Job is required!
+  </span>
   <p>
     <label for="previousPosition">Previous Position </label>
     <input type="text" id="previousPosition" name="previousPosition" placeholder="Front-end Developer"
       formControlName="previousPosition">
   </p>
+  <span
+    *ngIf="!userForm.controls.previousPosition.valid && userForm.dirty && userForm.get('previousPosition')?.hasError('required') && previousPosition.errors?.required"
+    class="error">
+    Previous Position is required!
+  </span>
   <p>
     <label for="totalExperience">Total Experience </label>
     <input type="text" id="totalExperience" name="totalExperience" placeholder="5" formControlName="totalExperience">
   </p>
+  <span
+    *ngIf="!userForm.controls.totalExperience.valid && userForm.dirty && userForm.get('totalExperience')?.hasError('required') && totalExperience.errors?.required"
+    class="error">
+    Total Experience is required!
+  </span>
   <p>
     <label for="technicalSkills">Technical Skills </label>
     <input type="text" id="technicalSkills" name="technicalSkills" placeholder="PHP, JavaScript.."
       formControlName="technicalSkills">
   </p>
+  <span
+    *ngIf="!userForm.controls.technicalSkills.valid && userForm.dirty && userForm.get('technicalSkills')?.hasError('required') && technicalSkills.errors?.required"
+    class="error">
+    Technical Skills is required!
+  </span>
   <p>
     <label for="about">About </label>
     <input type="text" id="about" name="about" formControlName="about">
   </p>
+  <span
+    *ngIf="!userForm.controls.about.valid && userForm.dirty && userForm.get('about')?.hasError('required') && about.errors?.required"
+    class="error">
+    About field is required!
+  </span>
+</form>
