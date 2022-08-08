@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {
   FormBuilder,
   FormGroup,
@@ -19,7 +20,8 @@ export class UserFormComponent implements OnInit {
   userForm!: FormGroup;
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
-  constructor(public fb: FormBuilder) {}
+
+  constructor(public fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
@@ -98,7 +100,34 @@ export class UserFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.userForm);
+    this.userForm.patchValue({fileSource:this.photo})
+    var formData: any = new FormData();
+    formData.append('fullname', this.userForm.get('name')?.value);
+    formData.append('email', this.userForm.get('email')?.value);
+    formData.append('file', this.userForm.get('fileSource')?.value);
+    formData.append('firstJobDay', this.userForm.get('startDate')?.value);
+    formData.append('totalWorkTime', this.userForm.get('totalExperience')?.value);
+    formData.append('university', this.userForm.get('university')?.value);
+    formData.append('graduationTime', this.userForm.get('graduation')?.value);
+    formData.append('workTitle', this.userForm.get('position')?.value);
+    formData.append('previousWorkTitle', this.userForm.get('previousPosition')?.value);
+    formData.append('previousJob', this.userForm.get('previousJob')?.value);
+    formData.append('skills', this.userForm.get('technicalSkills')?.value);
+    formData.append('description', this.userForm.get('about')?.value);
+    formData.append('createdAt', this.userForm.get('about')?.value);
+    formData.append('department', this.userForm.get('department')?.value);
+console.log(this.userForm.get('fileSource')?.value);
+console.log(this.userForm.get('name')?.value);
+    // const headers= new HttpHeaders()
+    // .set("x-access-token", localStorage.getItem("jwt"));
+
+    this.http
+      .post('http://localhost:4000/api/user', formData)
+      .subscribe({
+        next: (response) => console.log(response),
+        error: (error) => console.log(error),
+      });
+
     this.validateAllFormFields(this.userForm);
   }
 
