@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 const { verifyRootLevel, auth } = require("../middleware/auth");
 
-/* router.post("/register", async (req, res) => {
+ router.post("/register", async (req, res) => {
   try {
     const { username, password } = req.body;
 
