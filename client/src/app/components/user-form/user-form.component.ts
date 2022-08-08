@@ -28,7 +28,7 @@ export class UserFormComponent implements OnInit {
       name: [null, Validators.required],
       email: [null, [Validators.required, Validators.pattern(this.emailPattern)]],
       photo: [null, Validators.required],
-      startDate: [null, Validators.required],
+      startDate: ["", Validators.required],
       positionName: [null, Validators.required],
       department: [null, Validators.required],
       university: [null, Validators.required],
@@ -99,12 +99,20 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+  onFileChange(event: any) {
+     const file = event.target.files[0];
+     console.log(file);
+     this.userForm.patchValue({
+      photo: file
+     });
+     console.log(this.userForm);
+  }
+
   onSubmit() {
-    this.userForm.patchValue({fileSource:this.photo})
     var formData: any = new FormData();
     formData.append('fullname', this.userForm.get('name')?.value);
     formData.append('email', this.userForm.get('email')?.value);
-    formData.append('file', this.userForm.get('fileSource')?.value);
+    formData.append('file', this.userForm.get('photo')?.value);
     formData.append('firstJobDay', this.userForm.get('startDate')?.value);
     formData.append('totalWorkTime', this.userForm.get('totalExperience')?.value);
     formData.append('university', this.userForm.get('university')?.value);
@@ -114,9 +122,8 @@ export class UserFormComponent implements OnInit {
     formData.append('previousJob', this.userForm.get('previousJob')?.value);
     formData.append('skills', this.userForm.get('technicalSkills')?.value);
     formData.append('description', this.userForm.get('about')?.value);
-    formData.append('createdAt', this.userForm.get('about')?.value);
     formData.append('department', this.userForm.get('department')?.value);
-console.log(this.userForm.get('fileSource')?.value);
+console.log(this.userForm.get('photo')?.value);
 console.log(this.userForm.get('name')?.value);
     // const headers= new HttpHeaders()
     // .set("x-access-token", localStorage.getItem("jwt"));
