@@ -7,7 +7,7 @@ const path = require("path");
 
 const app = express();
 app.use(cors());
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 app.use(express.static(__dirname + "/client/src"));
 app.use("/img", express.static(__dirname + "/images"));
