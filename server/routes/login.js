@@ -34,7 +34,7 @@ const { verifyRootLevel, auth } = require("../middleware/auth");
     console.log(err);
     res.status(404).send();
   }
-}); */
+}); 
 
 router.post("/register-as-admin", verifyRootLevel, async (req, res) => {
   try {
