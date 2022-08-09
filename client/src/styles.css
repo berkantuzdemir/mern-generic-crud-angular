@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+.error {
+  color: white;
+  background-color: rgb(249, 144, 144);
+  border: 2px solid rgb(249, 144, 144);
+  border-radius: 3px;
+}
+
+*, body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+textarea {
+  position: static !important;
+  width: 100%;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-align: left;
+  background-color: #F7F7F7;
+  border: 0;
+  font-size: 15px;
+  font-weight: 300;
+  color: #4d4c4c;
+  outline: none;
+  resize: none;
+  height: 120px;
+  -webkit-transition: none;
+  transition: none;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=date], select {
+width: 100%;
+padding: 9px 20px;
+text-align: left;
+border: 0;
+outline: 0;
+border-radius: 6px;
+background-color: #F7F7F7; 
+font-size: 15px;
+font-weight: 300;
+color: #4d4c4c;
+-webkit-transition: all 0.3s ease;
+transition: all 0.3s ease;
+margin-top: 6px;
+}
+
+input[type=file] {
+width: 100%;
+text-align: left;
+border: 0;
+outline: 0;
+border-radius: 6px;
+background-color: #F7F7F7;
+font-size: 15px;
+font-weight: 300;
+color: #4d4c4c;
+-webkit-transition: all 0.3s ease;
+transition: all 0.3s ease;
+margin-top: 6px;
+}
+
+.my-container-class {
+  background: white;
+}

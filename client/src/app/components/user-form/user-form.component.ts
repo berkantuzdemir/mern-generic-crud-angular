@@ -11,7 +11,7 @@ import {
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css']
+  styleUrls: ['./user-form.component.css','../../../styles.css']
 })
 export class UserFormComponent implements OnInit {
 
