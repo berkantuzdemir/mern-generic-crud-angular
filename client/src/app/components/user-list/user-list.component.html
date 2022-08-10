@@ -1,0 +1,48 @@
+<div class="container mt-5 mb-2 p-5 my-container-class">
+    <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+      
+      <div class="example-container mat-elevation-z8">
+      
+        <mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="fullname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+          </ng-container>
+      
+          <!-- Progress Column -->
+          <ng-container matColumnDef="orionStartDay">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Orion Start Day </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="department">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Department </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+          </ng-container>
+      
+          <!-- Color Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Position </mat-header-cell>
+            <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="university">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> University </mat-header-cell>
+            <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+      
+</div>
