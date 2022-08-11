@@ -9,7 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class AuthserviceService {
   Authdata!: any;
-  apiURL = 'https://mern-generic-crud-angularr.herokuapp.com/';
+  apiURL = 'https://mern-generic-crud-angularr.herokuapp.com';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
 
