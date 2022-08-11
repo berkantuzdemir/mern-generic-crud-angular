@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 const port = process.env.PORT || 4000;
 
-app.use(express.static(__dirname + "/client/src"));
+app.use(express.static(__dirname + "/client/build"));
 app.use("/img", express.static(__dirname + "/images"));
 
 app.use(bodyParser.json());
