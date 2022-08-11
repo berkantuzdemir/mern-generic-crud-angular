@@ -1,6 +1,9 @@
+import { Login } from './../../model/login';
+import { AuthserviceService } from './../../services/authservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +12,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
+
+  user: Login;
   loginForm!: FormGroup;
-  constructor(public fb: FormBuilder, private http: HttpClient) { }
+  constructor(public fb: FormBuilder, private http: HttpClient, private Auth: AuthserviceService, private router: Router) {
+    this.user = new Login();
+   }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -27,5 +34,14 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     console.log('submit')
+  }
+  login(username:any,password:any) {
+
+    this.Auth.postLogin({username, password}).subscribe(data => {
+        this.Auth.Authdata = data;
+        console.log(data);
+    })
+     console.log(username);
+     console.log(password);
   }
 }

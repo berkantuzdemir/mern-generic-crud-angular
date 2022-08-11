@@ -13,10 +13,10 @@
       <div class="col-12">
         <p>
           <label for="username" class="form-label">User Name </label>
-          <input type="text" class="form-control" id="username" name="name"  formControlName="username">
+          <input type="text" class="form-control" id="username" name="name"  formControlName="username" #username>
         </p>
         <span
-          *ngIf="(loginForm.controls.username.touched || loginForm.controls.username.dirty) && !loginForm.controls.username.valid && loginForm.get('username')?.hasError('required') && username.errors?.required"
+          *ngIf="(loginForm.controls.username.touched || loginForm.controls.username.dirty) && !loginForm.controls.username.valid && loginForm.get('username')?.hasError('required') "
           class="error">
           Name field is required!
         </span>
@@ -24,11 +24,11 @@
       <div class="col-12">
         <p>
           <label for="password" class="form-label">Password </label>
-          <input type="password" id="password" class="form-control" name="password"
+          <input type="password" id="password" class="form-control" name="password" #password
             formControlName="password">
         </p>
         <span
-          *ngIf="(loginForm.controls.password.touched || loginForm.controls.password.dirty) && !loginForm.controls.password.valid && loginForm.get('password')?.hasError('required') && password.errors?.required"
+          *ngIf="(loginForm.controls.password.touched || loginForm.controls.password.dirty) && !loginForm.controls.password.valid && loginForm.get('password')?.hasError('required')"
           class="error">
           Email field is required!
         </span>
@@ -36,9 +36,9 @@
     </div>
     <div class="row">
       <div class="col-2">
-        <button type="button" class="btn btn-secondary position-absolute start-50 translate-middle-x " (click)="onSubmit()">LOGIN</button>
+        <button type="button" class="btn btn-secondary position-absolute start-50 translate-middle-x " (click)="login(username.value,password.value)">LOGIN</button>
       </div>
     </div>
   </form>
 </div>
-  
+
