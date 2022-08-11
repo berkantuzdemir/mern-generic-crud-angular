@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'userlist',
+    path: 'userlist', 
+    canActivateChild:[AuthGuard],
     component: UserListComponent
   },
 ];
