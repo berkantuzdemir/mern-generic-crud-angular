@@ -5,7 +5,7 @@ const password = process.env.DB_PASSWORD;
 const databaseName = process.env.DB_NAME;
 module.exports = () => {
   mongoose.connect(
-    `mongodb+srv://furkankaratas:3lVZR4D4z7Zxia1Z@cluster0.r0y33.mongodb.net/test`,
+    `mongodb+srv://furkankaratas:angulardb123@cluster0.r0y33.mongodb.net/test`,
     
     {
       useNewUrlParser: true,
