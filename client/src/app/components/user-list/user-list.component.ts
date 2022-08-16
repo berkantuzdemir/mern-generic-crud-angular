@@ -18,10 +18,12 @@ export class UserListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private Auth: AuthserviceService) { 
-  
+  constructor(private Auth: AuthserviceService) {
+
     this.Auth.getUser().subscribe(data => {
+      console.log(data);
       this.user = data;
+
    })
     this.dataSource = new MatTableDataSource(this.user);
   }

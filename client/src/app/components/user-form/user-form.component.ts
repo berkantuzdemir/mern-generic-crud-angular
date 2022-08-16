@@ -123,8 +123,6 @@ export class UserFormComponent implements OnInit {
     formData.append('skills', this.userForm.get('technicalSkills')?.value);
     formData.append('description', this.userForm.get('about')?.value);
     formData.append('department', this.userForm.get('department')?.value);
-console.log(this.userForm.get('photo')?.value);
-console.log(this.userForm.get('name')?.value);
     // const headers= new HttpHeaders()
     // .set("x-access-token", localStorage.getItem("jwt"));
 
