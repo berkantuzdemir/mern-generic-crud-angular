@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
 
     this.Auth.postLogin({username, password}).subscribe(data => {
         this.Auth.Authdata = data;
+        this.router.navigate(['/userlist'])
         console.log(data);
     })
      console.log(username);
