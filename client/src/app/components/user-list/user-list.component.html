@@ -7,7 +7,7 @@
 
     <div class="example-container mat-elevation-z8">
 
-        <mat-table [dataSource]="dataSource" matSort>
+        <table mat-table [dataSource]="dataSource" matSort>
 
             <!-- Progress Column -->
             <ng-container matColumnDef="fullname">
@@ -34,7 +34,7 @@
 
             <th mat-header-row *matHeaderRowDef="displayedColumns"></th>
             <td mat-row *matRowDef="let row; columns: displayedColumns;"> </td>
-        </mat-table>
+          </table>
 
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
