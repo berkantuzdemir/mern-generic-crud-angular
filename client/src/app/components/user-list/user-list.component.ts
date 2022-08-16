@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit {
   constructor(private Auth: AuthserviceService) {
 
     this.Auth.getUser().subscribe(data => {
-      console.log(data);
+      console.log("asdd",data);
       this.user = data;
 
    })
