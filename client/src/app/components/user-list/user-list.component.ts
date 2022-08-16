@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { AuthserviceService } from 'src/app/services/authservice.service';
 import { User } from '../../model/user';
+
 
 @Component({
   selector: 'app-user-list',
@@ -13,19 +14,24 @@ import { User } from '../../model/user';
 export class UserListComponent implements OnInit {
 
   displayedColumns = ['fullname', 'orionStartDay', 'department', 'position','university'];
-  dataSource!: MatTableDataSource<User>;
+  dataSource = new MatTableDataSource<User>();
   user!: User[]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private Auth: AuthserviceService) {
+  constructor(private Auth: AuthserviceService) { }
 
+  ngOnInit(): void {
+  this.getUsers();
+  }
+
+  getUsers() {
     this.Auth.getUser().subscribe(data => {
       console.log("asdd",data);
-      this.user = data;
-
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
    })
-    this.dataSource = new MatTableDataSource(this.user);
   }
 
   ngAfterViewInit() {
@@ -40,8 +46,5 @@ export class UserListComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-
-  }
 
 }
