@@ -14,7 +14,7 @@ import { User } from '../../model/user';
 export class UserListComponent implements OnInit {
 
   displayedColumns = ['fullname', 'department', 'position','university'];
-  dataSource = new MatTableDataSource<User>();
+  dataSource!:MatTableDataSource<User>;
   user!: User[]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -28,9 +28,7 @@ export class UserListComponent implements OnInit {
   getUsers() {
     this.Auth.getUser().subscribe(data => {
       console.log("asdd",data);
-      this.dataSource.data = data;
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.dataSource = new MatTableDataSource<User>(data)
    })
   }
 
