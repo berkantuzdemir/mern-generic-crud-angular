@@ -9,19 +9,16 @@
 
         <table mat-table [dataSource]="dataSource" matSort>
 
-            <!-- Progress Column -->
             <ng-container matColumnDef="fullname">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> fullname </th>
                 <td mat-cell *matCellDef="let row"> {{row.fullname}} </td>
             </ng-container>
 
-            <!-- Name Column -->
             <ng-container matColumnDef="department">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> department </th>
                 <td mat-cell *matCellDef="let row"> {{row.department}} </td>
             </ng-container>
 
-            <!-- Color Column -->
             <ng-container matColumnDef="position">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> position </th>
                 <td mat-cell *matCellDef="let row"> {{row.position}} </td>
@@ -30,6 +27,71 @@
             <ng-container matColumnDef="university">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> university </th>
                 <td mat-cell *matCellDef="let row"> {{row.university}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="firstJobDay">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> firstJobDay </th>
+              <td mat-cell *matCellDef="let row"> {{row.firstJobDay}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+              <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>
+              <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="createdAt">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> createdAt </th>
+              <td mat-cell *matCellDef="let row"> {{row.createdAt}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="graduationTime">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> graduationTime </th>
+              <td mat-cell *matCellDef="let row"> {{row.graduationTime}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="image">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> image </th>
+              <td mat-cell *matCellDef="let row"> {{row.image}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="previousJob">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> previousJob </th>
+              <td mat-cell *matCellDef="let row"> {{row.previousJob}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="previousWorkTitle">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> previousWorkTitle </th>
+              <td mat-cell *matCellDef="let row"> {{row.previousWorkTitle}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="skills">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> skills </th>
+              <td mat-cell *matCellDef="let row"> {{row.skills}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalWorkTime">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> totalWorkTime </th>
+              <td mat-cell *matCellDef="let row"> {{row.totalWorkTime}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="workTitle">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> workTitle </th>
+              <td mat-cell *matCellDef="let row"> {{row.workTitle}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="__v">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> __v </th>
+              <td mat-cell *matCellDef="let row"> {{row.__v}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="_id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> _id </th>
+              <td mat-cell *matCellDef="let row"> {{row._id}} </td>
             </ng-container>
 
             <th mat-header-row *matHeaderRowDef="displayedColumns"></th>
