@@ -13,7 +13,7 @@ import { User } from '../../model/user';
 })
 export class UserListComponent implements OnInit {
 
-  displayedColumns = ['fullname', 'orionStartDay', 'department', 'position','university'];
+  displayedColumns = ['fullname', 'department', 'position','university'];
   dataSource = new MatTableDataSource<User>();
   user!: User[]
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -1,12 +1,17 @@
 export class User {
-    id!:string
+    _id!:string
     fullname!:string
     email!:string
     image!:string
-    firstJobDay!:string
+    firstJobDay!:Date
     totalWorkTime!:string
     university!:string
     graduationTime!:string
     workTitle!:string
+    createdAt!:Date
+    department!:string
+    description!:string
+    previousJob!:string
+    previousWorkTitle!:string
+    skills!:string
   }
-  
