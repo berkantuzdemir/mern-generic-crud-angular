@@ -7,6 +7,13 @@ import { User } from '../../model/user';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 
+interface UserTableModel{
+  fullname:string,
+  department:string,
+  position:string,
+  university:string,
+}
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -27,12 +34,11 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   ];
   displayedColumns = ['fullname', 'department', 'position','university'];
   dataSource! : MatTableDataSource<UserTableModel>;
-
   user!: User[]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private Auth: AuthserviceService, private _liveAnnouncer: LiveAnnouncer) { }
+  constructor(private Auth: AuthserviceService) { }
 
   ngOnInit(): void {
   this.getUsers();
@@ -81,6 +87,7 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   this.dataSource=new MatTableDataSource<UserTableModel>(result)
   this.dataSource.paginator = this.paginator;
   this.dataSource.sort = this.sort;
+  console.log(this.dataSource)
    }
 
 
@@ -95,14 +102,12 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   }
 
   sortData(sort: Sort) {
-    console.log(sort)
-    const data = this.dataSource.data.slice();
     if (!sort.active || sort.direction === '' || this.dataSource.sort ) {
       (this.sort as any) = this.dataSource.sort;
       return;
     }
 
-    this.sort  = (this.dataSource.sort as any)((a:UserTableModel, b:UserTableModel) => {
+    this.sort  = (this.dataSource.sort as any)((a:User, b:User) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'fullname':
