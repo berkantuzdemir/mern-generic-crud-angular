@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort,MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -29,7 +29,7 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   ngOnInit(): void {
   this.getUsers();
   }
-
+ 
   getUsers() {
   //   this.Auth.getUser().subscribe(data => {
   //     let result = data.map((obj:User)=>{
