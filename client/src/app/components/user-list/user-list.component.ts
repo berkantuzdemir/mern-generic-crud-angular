@@ -4,15 +4,6 @@ import { MatSort,MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { AuthserviceService } from 'src/app/services/authservice.service';
 import { User } from '../../model/user';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-
-
-interface UserTableModel{
-  fullname:string,
-  department:string,
-  position:string,
-  university:string,
-}
 
 @Component({
   selector: 'app-user-list',
@@ -27,12 +18,13 @@ export class UserListComponent implements OnInit, AfterViewInit  {
     {fullname: 'berka1nt', department: 'Sydro1gen', position: 'asda1sdas', university: 'fddf', firstJobDay: '2022-08-12T00:00:00.000Z', email: 'fdf', description: 'fdf', createdAt: 'fdf', graduationTime: 'fdf', image: 'fdf', previousJob: 'fdf', previousWorkTitle: 'dasd', skills:'aas', totalWorkTime: 'adasd', workTitle: 'asddsa', __v:'1', _id: '1212' },
   ];
   displayedColumns = ['fullname', 'department', 'position','university'];
-  dataSource! : MatTableDataSource<UserTableModel>;
+  clickedRows = new Set<User>();
+  dataSource! : MatTableDataSource<User>;
   user!: User[]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private Auth: AuthserviceService, private _liveAnnouncer: LiveAnnouncer) { }
+  constructor(private Auth: AuthserviceService) { }
 
   ngOnInit(): void {
   this.getUsers();
@@ -55,17 +47,11 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   //     this.dataSource.sort = this.sort;
   //  })
 
-  let result = this.data.map((obj:User)=>{
-    return  {
-      'fullname':obj.fullname,
-      'department':obj.department,
-      'position':obj.workTitle,
-      'university':obj.university
-     } 
-  }) 
-  this.dataSource=new MatTableDataSource<UserTableModel>(result)
+
+  this.dataSource = new MatTableDataSource<User>(this.data)
   this.dataSource.paginator = this.paginator;
   this.dataSource.sort = this.sort;
+  console.log(this.dataSource)
    }
 
   applyFilter(filterValue: string) {
@@ -79,14 +65,12 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   } 
 
   sortData(sort: Sort) {
-    console.log(sort)
-    const data = this.dataSource.data.slice();
     if (!sort.active || sort.direction === '' || this.dataSource.sort ) {
       (this.sort as any) = this.dataSource.sort;
       return;
     }
 
-    this.sort  = (this.dataSource.sort as any)((a:UserTableModel, b:UserTableModel) => {
+    this.sort  = (this.dataSource.sort as any)((a:User, b:User) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'fullname':
