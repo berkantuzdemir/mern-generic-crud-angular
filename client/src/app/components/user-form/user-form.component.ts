@@ -18,17 +18,15 @@ export class UserFormComponent implements OnInit {
   nameRef: string = 'user-form'
   Position: string[] = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
   userForm!: FormGroup;
-  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-
 
   constructor(public fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
       name: [null, Validators.required],
-      email: [null, [Validators.required, Validators.pattern(this.emailPattern)]],
+      email: [null, [Validators.required, Validators.email]],
       photo: [null, Validators.required],
-      startDate: ["", Validators.required],
+      startDate: [new Date("12.12.1999"), Validators.required],
       positionName: [null, Validators.required],
       department: [null, Validators.required],
       university: [null, Validators.required],

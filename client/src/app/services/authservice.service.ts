@@ -13,7 +13,7 @@ export class AuthserviceService {
   apiURL = 'https://mern-generic-crud-angularr.herokuapp.com';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
-  
+
   constructor(private http:HttpClient) { }
 
   httpOptions = {

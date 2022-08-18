@@ -7,38 +7,35 @@
   <div class="example-container mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
           <ng-container matColumnDef="checked" >
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Check
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Check
             </th>
             <td mat-cell *matCellDef="let row; let i=index" (click)="$event.stopPropagation()"> <mat-checkbox  (change)="row.isSelected = $event.checked" (click)="clickedRows.add(row)"></mat-checkbox> </td>
         </ng-container>
-
-          <!-- Progress Column -->
           <ng-container matColumnDef="fullname">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fullname"> fullname
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fullname">
+                fullname
               </th>
               <td mat-cell *matCellDef="let row"> {{row.fullname}} </td>
           </ng-container>
-
-          <!-- Name Column -->
           <ng-container matColumnDef="department">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by department">
-                  department </th>
+                  department
+              </th>
               <td mat-cell *matCellDef="let row"> {{row.department}} </td>
           </ng-container>
-
-          <!-- Color Column -->
           <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by position"> position
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by position">
+                position
               </th>
               <td mat-cell *matCellDef="let row"> {{row.position}} </td>
           </ng-container>
-
           <ng-container matColumnDef="university">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by university">
-                  university </th>
+                university
+              </th>
               <td mat-cell *matCellDef="let row"> {{row.university}} </td>
           </ng-container>
-          
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row (click)="openDialog(row)"
               *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -46,8 +43,8 @@
       <mat-toolbar>
         <mat-toolbar-row style="background-color:white;" class="position-relative">
           <button  mat-raised-button color="accent" (click)="delete()" style="background-color: #ff4081; color:white">
-            <mat-icon fontIcon="delete" class="text-center"></mat-icon> 
-            <span class="text-center">Delete</span> 
+            <mat-icon fontIcon="delete" class="text-center"></mat-icon>
+            <span class="text-center">Delete</span>
           </button>
           <mat-paginator class="position-absolute end-0 m-2" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
         </mat-toolbar-row>

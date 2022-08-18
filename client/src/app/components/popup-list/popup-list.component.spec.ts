@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PopupListComponent } from './popup-list.component';
 
 describe('PopupListComponent', () => {
