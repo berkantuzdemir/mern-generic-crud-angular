@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, DoCheck, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort,MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { AuthserviceService } from 'src/app/services/authservice.service';
 import { User } from '../../model/user';
+import { PopupListComponent } from '../popup-list/popup-list.component';
 
 @Component({
   selector: 'app-user-list',
@@ -24,12 +26,17 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private Auth: AuthserviceService) { }
+  constructor(private Auth: AuthserviceService, private dialogRef : MatDialog) { }
+    openDialog(row:any){
+      this.clickedRows.add(row);
+      this.dialogRef.open(PopupListComponent);
+    }
+
 
   ngOnInit(): void {
   this.getUsers();
   }
- 
+
   getUsers() {
   //   this.Auth.getUser().subscribe(data => {
   //     let result = data.map((obj:User)=>{

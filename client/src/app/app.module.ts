@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularModule } from './module/angular/angular.module';
+import { PopupListComponent } from './components/popup-list/popup-list.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AngularModule } from './module/angular/angular.module';
     UserFormComponent,
     LoginComponent,
     UserListComponent,
+    PopupListComponent,
     
   ],
   imports: [
