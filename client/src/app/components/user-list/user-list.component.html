@@ -7,8 +7,9 @@
 
     <div class="example-container mat-elevation-z8">
 
-        <table mat-table [dataSource]="dataSource" matSort>
+        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
 
+            <!-- Progress Column -->
             <ng-container matColumnDef="fullname">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> fullname </th>
                 <td mat-cell *matCellDef="let row"> {{row.fullname}} </td>
