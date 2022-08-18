@@ -1,30 +1,15 @@
-import { AfterViewInit, Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort,MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { AuthserviceService } from 'src/app/services/authservice.service';
 import { User } from '../../model/user';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-
-
-interface UserTableModel{
-  fullname:string,
-  department:string,
-  position:string,
-  university:string,
-}
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-
-export class UserListComponent implements OnInit {
-
-  displayedColumns = ['fullname', 'department', 'position','university'];
-  dataSource = new MatTableDataSource<User>();
-
 
 export class UserListComponent implements OnInit, AfterViewInit  {
 
@@ -33,7 +18,8 @@ export class UserListComponent implements OnInit, AfterViewInit  {
     {fullname: 'berka1nt', department: 'Sydro1gen', position: 'asda1sdas', university: 'fddf', firstJobDay: '2022-08-12T00:00:00.000Z', email: 'fdf', description: 'fdf', createdAt: 'fdf', graduationTime: 'fdf', image: 'fdf', previousJob: 'fdf', previousWorkTitle: 'dasd', skills:'aas', totalWorkTime: 'adasd', workTitle: 'asddsa', __v:'1', _id: '1212' },
   ];
   displayedColumns = ['fullname', 'department', 'position','university'];
-  dataSource! : MatTableDataSource<UserTableModel>;
+  clickedRows = new Set<User>();
+  dataSource! : MatTableDataSource<User>;
   user!: User[]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -43,23 +29,8 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   ngOnInit(): void {
   this.getUsers();
   }
-
+ 
   getUsers() {
-
-    this.Auth.getUser().subscribe(data => {
-      console.log("asdd",data);
-      this.dataSource.data = data;
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      console.log("datasource",this.dataSource);
-   })
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
   //   this.Auth.getUser().subscribe(data => {
   //     let result = data.map((obj:User)=>{
   //       return  {
@@ -76,20 +47,12 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   //     this.dataSource.sort = this.sort;
   //  })
 
-  let result = this.data.map((obj:User)=>{
-    return  {
-      'fullname':obj.fullname,
-      'department':obj.department,
-      'position':obj.workTitle,
-      'university':obj.university
-     }
-  })
-  this.dataSource=new MatTableDataSource<UserTableModel>(result)
+
+  this.dataSource = new MatTableDataSource<User>(this.data)
   this.dataSource.paginator = this.paginator;
   this.dataSource.sort = this.sort;
   console.log(this.dataSource)
    }
-
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
