@@ -41,16 +41,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   getUsers() {
       this.Auth.getUser().subscribe(data => {
-        this.dataSource.data = data
+        this.dataSource = new MatTableDataSource<User>(data)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
      })
-
-
-    // this.dataSource = new MatTableDataSource<User>(this.data)
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    console.log(this.dataSource)
   }
 
   applyFilter(filterValue: string) {
@@ -60,7 +54,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
+    if(this.sort == undefined) {
+      this.dataSource.sort = this.sort;
+    }
   }
 
   delete(){
