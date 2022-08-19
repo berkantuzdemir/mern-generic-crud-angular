@@ -35,6 +35,8 @@ export class AuthserviceService {
     .get<User[]>(this.apiURL+ '/api/user', this.httpOptions)
   }
   putUser(formData: User): Observable<User> {
+    const token: any = localStorage.getItem('jwt');
+    this.httpOptions.headers = this.httpOptions.headers.set('x-access-token', token)
     return this.http
     .put<User>(this.apiURL + '/api/user', formData , this.httpOptions)
     .pipe(retry(1), catchError(this.handleError));

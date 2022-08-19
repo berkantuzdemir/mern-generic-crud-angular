@@ -14,7 +14,7 @@ export class PopupListComponent implements OnInit {
   nameRef: string = 'user-form'
   Position: string[] = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
   userForm!: FormGroup;
-  userData!:User 
+  userData!:User
 
   constructor(public fb: FormBuilder, private http: HttpClient, private Auth:AuthserviceService) { }
 
@@ -52,7 +52,7 @@ export class PopupListComponent implements OnInit {
     formData.append('skills', this.userForm.get('technicalSkills')?.value);
     formData.append('description', this.userForm.get('about')?.value);
     formData.append('department', this.userForm.get('department')?.value);
-
+console.log(this.Auth.putUser(formData));
     this.Auth.putUser(formData).subscribe({
       next: (response) => console.log(response),
       error: (error) => console.log(error),
