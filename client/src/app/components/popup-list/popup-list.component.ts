@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-popup-list',
   templateUrl: './popup-list.component.html',
-  styleUrls: ['./popup-list.component.css']
+  styleUrls: ['./popup-list.component.css','../../../styles.css']
 })
 export class PopupListComponent implements OnInit {
   nameRef: string = 'user-form'
@@ -15,7 +16,7 @@ export class PopupListComponent implements OnInit {
   userForm!: FormGroup;
   userData!:User 
 
-  constructor(public fb: FormBuilder, private http: HttpClient) { }
+  constructor(public fb: FormBuilder, private http: HttpClient, private Auth:AuthserviceService) { }
 
   ngOnInit(): void {
     console.log(this.userData)
@@ -51,15 +52,11 @@ export class PopupListComponent implements OnInit {
     formData.append('skills', this.userForm.get('technicalSkills')?.value);
     formData.append('description', this.userForm.get('about')?.value);
     formData.append('department', this.userForm.get('department')?.value);
-    // const headers= new HttpHeaders()
-    // .set("x-access-token", localStorage.getItem("jwt"));
 
-    this.http
-      .post('http://localhost:4000/api/user', formData)
-      .subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error),
-      });
+    this.Auth.putUser(formData).subscribe({
+      next: (response) => console.log(response),
+      error: (error) => console.log(error),
+    })
 
     this.validateAllFormFields(this.userForm);
   }

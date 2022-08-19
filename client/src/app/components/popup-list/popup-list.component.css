@@ -1,0 +1,11 @@
+input[type=image] {
+  border-radius: 6px;
+  text-align: left;
+  background-color: #F7F7F7;
+  border: 0;
+  font-size: 15px;
+  font-weight: 300;
+  color: #4d4c4c;
+  width: 60%;
+  height:8rem;
+}

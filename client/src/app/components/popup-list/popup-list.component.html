@@ -1,4 +1,4 @@
-<div class="container mt-5 mb-2 p-5 my-container-class">
+<div class="container mt-2  p-5 my-container-class">
   <form [formGroup]="userForm">
     <div class="row">
       <div class="col-6">
@@ -8,7 +8,7 @@
             formControlName="fullname">
         </p>
         <span
-          *ngIf="(userForm.controls.fullname.touched || userForm.controls.fullname.dirty) && !userForm.controls.fullname.valid && userForm.get('fullname')?.hasError('required') && fullname.errors?.required"
+          *ngIf="(userForm.controls.fullname.touched || userForm.controls.fullname.dirty) && !userForm.controls.fullname.valid && userForm.get('fullname')?.hasError('required') "
           class="error">
           Name field is required!
         </span>
@@ -71,7 +71,14 @@
       </div>
     </div>
     <div  class="row">
-      <div class="col-12">
+      <div class="col-4">
+        <p>
+          <label for="photo" class="form-label">Curent Photo </label>
+          <input type="image" src="img_submit.gif" class="form-control rounded float-left" name="current-image" alt="Submit">
+       
+        </p>
+      </div>
+      <div class="col-8">
         <p>
           <label for="photo" class="form-label">Photo </label>
           <input type="file" id="photo" class="form-control" name="photo" formControlName="photo" value="">
@@ -176,7 +183,7 @@
     </div>
     <div class="row">
       <div class="col-2 ">
-        <button type="button" class="btn btn-secondary">Update</button>
+        <button type="submit" class="btn btn-secondary">Update</button>
       </div>
     </div>
   </form>
