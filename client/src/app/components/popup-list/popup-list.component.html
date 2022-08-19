@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-6">
         <p>
-          <label for="name" class="form-label">Full Name </label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Name Surname"
-            formControlName="name">
+          <label for="fullname" class="form-label">Full Name </label>
+          <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Name Surname"
+            formControlName="fullname">
         </p>
         <span
-          *ngIf="(userForm.controls.name.touched || userForm.controls.name.dirty) && !userForm.controls.name.valid && userForm.get('name')?.hasError('required') && name.errors?.required"
+          *ngIf="(userForm.controls.fullname.touched || userForm.controls.fullname.dirty) && !userForm.controls.fullname.valid && userForm.get('fullname')?.hasError('required') && fullname.errors?.required"
           class="error">
           Name field is required!
         </span>

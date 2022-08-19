@@ -1,6 +1,8 @@
+import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-popup-list',
@@ -11,25 +13,26 @@ export class PopupListComponent implements OnInit {
   nameRef: string = 'user-form'
   Position: string[] = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
   userForm!: FormGroup;
-  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  userData!:User 
 
   constructor(public fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
+    console.log(this.userData)
     this.userForm = this.fb.group({
-      fullname: [null],
-      email: [null],
-      photo: [null],
-      startDate: [null],
-      positionName: [null],
-      department: [null],
-      university: [null],
-      graduation: [null],
-      previousJob: [null],
-      previousPosition: [null],
-      totalExperience: [null],
-      technicalSkills: [null],
-      about: [null]
+      fullname: [this.userData.fullname, Validators.required],
+      email: [this.userData.email, [Validators.required, Validators.email]],
+      photo: [this.userData.image,Validators.required],
+      startDate: [formatDate(this.userData.firstJobDay, 'yyyy-MM-dd', 'en'), Validators.required],
+      positionName: [this.userData.position, Validators.required],
+      department: [this.userData.department,Validators.required],
+      university: [this.userData.university,Validators.required],
+      graduation: [formatDate(this.userData.graduationTime, 'yyyy-MM-dd', 'en'),Validators.required],
+      previousJob: [this.userData.previousJob,Validators.required],
+      previousPosition: [this.userData.previousWorkTitle,Validators.required],
+      totalExperience: [this.userData.totalWorkTime,Validators.required],
+      technicalSkills: [this.userData.skills,[Validators.required, Validators.minLength(20)]],
+      about: [this.userData.description, [Validators.required, Validators.minLength(150)]]
     });
   }
 
@@ -61,7 +64,7 @@ export class PopupListComponent implements OnInit {
     this.validateAllFormFields(this.userForm);
   }
 
-  get name(): FormControl {
+  get fullname(): FormControl {
     return this.userForm.get('name') as FormControl;
   }
 
