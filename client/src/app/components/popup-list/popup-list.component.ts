@@ -40,14 +40,14 @@ export class PopupListComponent implements OnInit {
   onSubmit() {
     var formData: any = new FormData();
     formData.append('_id', this.userData._id);
-    formData.append('fullname', this.userForm.get('name')?.value);
+    formData.append('fullname', this.userForm.get('fullname')?.value);
     formData.append('email', this.userForm.get('email')?.value);
     formData.append('file', this.userForm.get('photo')?.value);
     formData.append('firstJobDay', this.userForm.get('startDate')?.value);
     formData.append('totalWorkTime', this.userForm.get('totalExperience')?.value);
     formData.append('university', this.userForm.get('university')?.value);
     formData.append('graduationTime', this.userForm.get('graduation')?.value);
-    formData.append('workTitle', this.userForm.get('position')?.value);
+    formData.append('workTitle', this.userForm.get('positionName')?.value);
     formData.append('previousWorkTitle', this.userForm.get('previousPosition')?.value);
     formData.append('previousJob', this.userForm.get('previousJob')?.value);
     formData.append('skills', this.userForm.get('technicalSkills')?.value);
@@ -55,7 +55,9 @@ export class PopupListComponent implements OnInit {
     formData.append('createdAt', this.userData.createdAt);
     formData.append('department', this.userForm.get('department')?.value);
     formData.append('__v', this.userData.__v);
-console.log("berkantformdata",formData);
+    for (var pair of formData.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]);
+  }
     this.Auth.putUser(formData).subscribe({
       next: (response) => console.log(response),
       error: (error) => console.log(error),
