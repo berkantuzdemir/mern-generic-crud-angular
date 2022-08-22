@@ -126,14 +126,14 @@ export class UserFormComponent implements OnInit {
     // .set("x-access-token", localStorage.getItem("jwt"));
 
     this.http
-      .post('http://mern-generic-crud-angular1.herokuapp.com/api/user', formData)
+      .post('http://localhost:4000/api/user', formData)
       .subscribe({
         next: (response) => console.log(response),
         error: (error) => console.log(error),
       });
 
     this.validateAllFormFields(this.userForm);
-    
+
   }
 
   validateAllFormFields(formGroup: FormGroup) {
