@@ -6,6 +6,7 @@ import {
   Validators,
   FormControl
 } from '@angular/forms';
+import { MatFormField } from '@angular/material/form-field';
 
 
 @Component({
@@ -132,6 +133,10 @@ export class UserFormComponent implements OnInit {
       });
 
     this.validateAllFormFields(this.userForm);
+    if(!(formData === null)){
+      window.location.reload();
+    }
+
   }
 
   validateAllFormFields(formGroup: FormGroup) {
