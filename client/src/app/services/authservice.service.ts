@@ -10,7 +10,7 @@ import { User } from '../model/user';
 })
 export class AuthserviceService {
   Authdata!: any;
-  apiURL = 'https://mern-generic-crud-angularr.herokuapp.com';
+  apiURL = 'https://mern-generic-crud-angular1.herokuapp.com';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
 
