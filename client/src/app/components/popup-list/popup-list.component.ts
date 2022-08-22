@@ -56,10 +56,7 @@ export class PopupListComponent implements OnInit {
     formData.append('createdAt', this.userData.createdAt);
     formData.append('department', this.userForm.get('department')?.value);
     formData.append('__v', this.userData.__v);
-    for (var pair of formData.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]);
-
-    }
+    
     this.JsonFormData = JSON.stringify(Object.fromEntries(formData));
 
     this.Auth.putUser(this.JsonFormData).subscribe({
