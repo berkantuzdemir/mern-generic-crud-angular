@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('jwt', this.Auth.Authdata.token);
         this.router.navigate(['/userlist'])
         console.log(data);
+        console.log(data);
     })
      console.log(username);
      console.log(password);
