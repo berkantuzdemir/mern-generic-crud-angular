@@ -13,7 +13,7 @@ import { PopupListComponent } from '../popup-list/popup-list.component';
   styleUrls: ['./user-list.component.css']
 })
 
-export class UserListComponent implements OnInit, AfterViewInit {
+export class UserListComponent implements OnInit, AfterViewInit, DoCheck {
 
   // data: User[] = [
   //   { fullname: 'berkant', department: 'Hydrogen', position: 'Software Intern', university: 'fdsdf', firstJobDay: '2022-08-11T00:00:00.000Z', email: 'fdsdf', description: 'fdsdf', createdAt: '2022-08-11T00:00:00.000Z', graduationTime: '2022-08-11T00:00:00.000Z', image: 'fdsdf', previousJob: 'fdsdf', previousWorkTitle: 'sadasd', skills: 'asdas', totalWorkTime: 'aasdasd', workTitle: 'asdasdsa', __v: '0', _id: '12312' },
@@ -29,6 +29,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
 
   constructor(private Auth: AuthserviceService, private dialogRef: MatDialog) { }
+  ngDoCheck(): void {
+    this.getUsers();
+    throw new Error('Method not implemented.');
+  }
   openDialog(row: any) {
     const modalRef = this.dialogRef.open(PopupListComponent);
     modalRef.componentInstance.userData = row;
@@ -36,7 +40,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-    this.getUsers();
   }
 
   getUsers() {

@@ -110,7 +110,7 @@ export class UserFormComponent implements OnInit {
     var formData: any = new FormData();
     formData.append('fullname', this.userForm.get('name')?.value);
     formData.append('email', this.userForm.get('email')?.value);
-    formData.append('file', this.userForm.get('photo')?.value);
+    formData.append('image', this.userForm.get('photo')?.value);
     formData.append('firstJobDay', this.userForm.get('startDate')?.value);
     formData.append('totalWorkTime', this.userForm.get('totalExperience')?.value);
     formData.append('university', this.userForm.get('university')?.value);
