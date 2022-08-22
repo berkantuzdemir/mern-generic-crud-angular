@@ -39,6 +39,7 @@ export class PopupListComponent implements OnInit {
 
   onSubmit() {
     var formData: any = new FormData();
+    formData.append('_id', this.userData._id);
     formData.append('fullname', this.userForm.get('name')?.value);
     formData.append('email', this.userForm.get('email')?.value);
     formData.append('file', this.userForm.get('photo')?.value);
@@ -51,8 +52,10 @@ export class PopupListComponent implements OnInit {
     formData.append('previousJob', this.userForm.get('previousJob')?.value);
     formData.append('skills', this.userForm.get('technicalSkills')?.value);
     formData.append('description', this.userForm.get('about')?.value);
+    formData.append('createdAt', this.userData.createdAt);
     formData.append('department', this.userForm.get('department')?.value);
-console.log(this.Auth.putUser(formData));
+    formData.append('__v', this.userData.__v);
+console.log("berkantformdata",formData);
     this.Auth.putUser(formData).subscribe({
       next: (response) => console.log(response),
       error: (error) => console.log(error),
