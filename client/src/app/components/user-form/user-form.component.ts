@@ -133,10 +133,7 @@ export class UserFormComponent implements OnInit {
       });
 
     this.validateAllFormFields(this.userForm);
-    if(!(formData === null)){
-      window.location.reload();
-    }
-
+    
   }
 
   validateAllFormFields(formGroup: FormGroup) {
