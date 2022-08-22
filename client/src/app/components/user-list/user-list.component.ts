@@ -37,6 +37,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
   getUsers() {
