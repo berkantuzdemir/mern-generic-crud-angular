@@ -42,7 +42,7 @@ export class PopupListComponent implements OnInit {
     formData.append('_id', this.userData._id);
     formData.append('fullname', this.userForm.get('fullname')?.value);
     formData.append('email', this.userForm.get('email')?.value);
-    formData.append('file', this.userForm.get('photo')?.value);
+    formData.append('image', this.userForm.get('photo')?.value);
     formData.append('firstJobDay', this.userForm.get('startDate')?.value);
     formData.append('totalWorkTime', this.userForm.get('totalExperience')?.value);
     formData.append('university', this.userForm.get('university')?.value);
