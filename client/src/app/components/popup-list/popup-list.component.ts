@@ -15,6 +15,7 @@ export class PopupListComponent implements OnInit {
   Position: string[] = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
   userForm!: FormGroup;
   userData!:User
+  JsonFormData:any;
 
   constructor(public fb: FormBuilder, private http: HttpClient, private Auth:AuthserviceService) { }
 
@@ -57,8 +58,11 @@ export class PopupListComponent implements OnInit {
     formData.append('__v', this.userData.__v);
     for (var pair of formData.entries()) {
       console.log(pair[0]+ ', ' + pair[1]);
-  }
-    this.Auth.putUser(formData).subscribe({
+
+    }
+    this.JsonFormData = JSON.stringify(Object.fromEntries(formData));
+
+    this.Auth.putUser(this.JsonFormData).subscribe({
       next: (response) => console.log(response),
       error: (error) => console.log(error),
     })
