@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/userform',
+    redirectTo: 'userform',
     pathMatch: 'full'
   },
   {
