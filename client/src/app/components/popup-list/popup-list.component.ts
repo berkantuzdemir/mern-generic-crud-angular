@@ -60,7 +60,7 @@ export class PopupListComponent implements OnInit {
     this.JsonFormData = JSON.stringify(Object.fromEntries(formData));
 
     this.Auth.putUser(this.JsonFormData).subscribe(() => {
-      window.location.href="https://mern-generic-crud-angular1.herokuapp.com/userform"
+      window.location.href="https://mern-generic-crud-angular1.herokuapp.com/userlist"
     }, (error) => {
       alert('update was failed')
       console.log(error)
