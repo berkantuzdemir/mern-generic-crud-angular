@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularModule } from './module/angular/angular.module';
 import { PopupListComponent } from './components/popup-list/popup-list.component';
 import { AuthserviceService } from './services/authservice.service';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { AuthserviceService } from './services/authservice.service';
     BrowserAnimationsModule,
     AngularModule
   ],
-  providers: [],
+  providers: [ {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
