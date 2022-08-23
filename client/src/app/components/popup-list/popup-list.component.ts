@@ -8,32 +8,32 @@ import { AuthserviceService } from 'src/app/services/authservice.service';
 @Component({
   selector: 'app-popup-list',
   templateUrl: './popup-list.component.html',
-  styleUrls: ['./popup-list.component.css','../../../styles.css']
+  styleUrls: ['./popup-list.component.css', '../../../styles.css']
 })
 export class PopupListComponent implements OnInit {
   nameRef: string = 'user-form'
   Position: string[] = ['Back-end Developer', 'Font-end Developer', 'Software Intern'];
   userForm!: FormGroup;
-  userData!:User
-  JsonFormData:any;
+  userData!: User
+  JsonFormData: any;
 
-  constructor(public fb: FormBuilder, private http: HttpClient, private Auth:AuthserviceService) { }
+  constructor(public fb: FormBuilder, private http: HttpClient, private Auth: AuthserviceService) { }
 
   ngOnInit(): void {
     console.log(this.userData)
     this.userForm = this.fb.group({
       fullname: [this.userData.fullname, Validators.required],
       email: [this.userData.email, [Validators.required, Validators.email]],
-      photo: [this.userData.image,Validators.required],
+      photo: [this.userData.image, Validators.required],
       startDate: [formatDate(this.userData.firstJobDay, 'yyyy-MM-dd', 'en'), Validators.required],
       positionName: [this.userData.position, Validators.required],
-      department: [this.userData.department,Validators.required],
-      university: [this.userData.university,Validators.required],
-      graduation: [formatDate(this.userData.graduationTime, 'yyyy-MM-dd', 'en'),Validators.required],
-      previousJob: [this.userData.previousJob,Validators.required],
-      previousPosition: [this.userData.previousWorkTitle,Validators.required],
-      totalExperience: [this.userData.totalWorkTime,Validators.required],
-      technicalSkills: [this.userData.skills,[Validators.required, Validators.minLength(20)]],
+      department: [this.userData.department, Validators.required],
+      university: [this.userData.university, Validators.required],
+      graduation: [formatDate(this.userData.graduationTime, 'yyyy-MM-dd', 'en'), Validators.required],
+      previousJob: [this.userData.previousJob, Validators.required],
+      previousPosition: [this.userData.previousWorkTitle, Validators.required],
+      totalExperience: [this.userData.totalWorkTime, Validators.required],
+      technicalSkills: [this.userData.skills, [Validators.required, Validators.minLength(20)]],
       about: [this.userData.description, [Validators.required, Validators.minLength(150)]]
     });
   }
@@ -56,12 +56,14 @@ export class PopupListComponent implements OnInit {
     formData.append('createdAt', this.userData.createdAt);
     formData.append('department', this.userForm.get('department')?.value);
     formData.append('__v', this.userData.__v);
-    
+
     this.JsonFormData = JSON.stringify(Object.fromEntries(formData));
 
-    this.Auth.putUser(this.JsonFormData).subscribe({
-      next: (response) => console.log(response),
-      error: (error) => console.log(error),
+    this.Auth.putUser(this.JsonFormData).subscribe(() => {
+      window.location.reload();
+    }, (error) => {
+      alert('update was failed')
+      console.log(error)
     })
 
     this.validateAllFormFields(this.userForm);

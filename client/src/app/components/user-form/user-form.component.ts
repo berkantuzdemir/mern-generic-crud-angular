@@ -99,12 +99,8 @@ export class UserFormComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-     const file = event.target.files[0];
-     console.log(file);
-     this.userForm.patchValue({
-      photo: file
-     });
-     console.log(this.userForm);
+    const inputElement: HTMLInputElement = document.getElementById('photo') as HTMLInputElement
+    inputElement.files = null;
   }
 
   onSubmit() {

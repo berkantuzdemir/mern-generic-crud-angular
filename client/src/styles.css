@@ -64,10 +64,9 @@ margin-top: 6px;
 }
 
 .my-container-class {
-  background: white;
-  overflow: scroll;
+  background: white
 }
 
-html, body { height: 100%;   overflow: scroll;}
+html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

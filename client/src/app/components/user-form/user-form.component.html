@@ -43,7 +43,7 @@
         <p>
           <label for="photo" class="form-label">Photo </label>
           <input type="file" id="photo" class="form-control" name="photo" formControlName="photo"
-            (change)="onFileChange($event)" value="">
+            (change)="onFileChange($event)">
         </p>
         <span
           *ngIf="(userForm.controls.photo.touched || userForm.controls.photo.dirty) && userForm.controls.photo.touched && !userForm.controls.photo.valid && userForm.get('photo')?.hasError('required') && photo.errors?.required"
