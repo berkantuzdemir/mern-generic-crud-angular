@@ -16,7 +16,7 @@ export class PopupListComponent implements OnInit {
   userForm!: FormGroup;
   userData!: User
   JsonFormData: any;
-
+  imagePath:any
   constructor(public fb: FormBuilder, private http: HttpClient, private Auth: AuthserviceService) { }
 
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class PopupListComponent implements OnInit {
       technicalSkills: [this.userData.skills, [Validators.required, Validators.minLength(20)]],
       about: [this.userData.description, [Validators.required, Validators.minLength(150)]]
     });
+     this.imagePath = this.userData.image;
   }
 
   onSubmit() {
@@ -59,14 +60,15 @@ export class PopupListComponent implements OnInit {
 
     this.JsonFormData = JSON.stringify(Object.fromEntries(formData));
 
-    this.Auth.putUser(this.JsonFormData).subscribe(() => {
-      window.location.reload()
-    }, (error) => {
-      alert('update was failed')
-      console.log(error)
-    })
-
     this.validateAllFormFields(this.userForm);
+    if (this.userForm.valid) {
+      this.Auth.putUser(this.JsonFormData).subscribe(() => {
+        window.location.reload()
+      }, (error) => {
+        alert('update was failed')
+        console.log(error)
+      })
+    }
   }
 
   get fullname(): FormControl {
@@ -130,4 +132,9 @@ export class PopupListComponent implements OnInit {
     });
   }
 
+  
+  onFileChange(event: any) {
+    const inputElement: HTMLInputElement = document.getElementById('photo') as HTMLInputElement
+    inputElement.files = null;
+  }
 }

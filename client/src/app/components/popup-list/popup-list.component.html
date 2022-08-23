@@ -1,5 +1,5 @@
 <div class="container mt-2  p-5 my-container-class">
-  <form [formGroup]="userForm">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-6">
         <p>
@@ -74,14 +74,13 @@
       <div class="col-4">
         <p>
           <label for="photo" class="form-label">Curent Photo </label>
-          <input type="image" src="img_submit.gif" class="form-control rounded float-left" name="current-image" alt="Submit">
-
+          <input type="image" src= {{imagePath}} class="form-control rounded float-left" name="current-image" alt="Submit">
         </p>
       </div>
       <div class="col-8">
         <p>
           <label for="photo" class="form-label">Photo </label>
-          <input type="file" id="photo" class="form-control" name="photo" formControlName="photo" value="">
+          <input type="file" id="photo" class="form-control" name="photo" formControlName="photo" value=""  (change)="onFileChange($event)">
         </p>
         <span
           *ngIf="(userForm.controls.photo.touched || userForm.controls.photo.dirty) && userForm.controls.photo.touched && !userForm.controls.photo.valid && userForm.get('photo')?.hasError('required') && photo.errors?.required"
@@ -183,7 +182,7 @@
     </div>
     <div class="row">
       <div class="col-2 ">
-        <button type="submit" class="btn btn-secondary" (click)="onSubmit()">Update</button>
+        <button class="btn btn-secondary" >Update</button>
       </div>
     </div>
   </form>
